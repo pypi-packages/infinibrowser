@@ -1,4 +1,4 @@
-from client import Infinibrowser
+from .client import Infinibrowser
 
 
 __all__ = ["Infinibrowser"]
