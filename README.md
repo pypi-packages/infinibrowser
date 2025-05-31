@@ -1,2 +1,2 @@
 # infinibrowser
-Infinibrowser API
+A simple API wrapper for infinibrowser.wiki
