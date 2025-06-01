@@ -16,16 +16,15 @@ class Infinibrowser:
     # Base URL for the API
     API_URL = "https://infinibrowser.wiki/"
 
-    def __init__(self):
-        pass
-
-    def _get_request(self, path: str, params: Params | None = None):
-        url = f"{self.API_URL}{path}"
+    @classmethod
+    def _get_request(cls, path: str, params: Params | None = None):
+        url = f"{cls.API_URL}{path}"
         response = requests.get(url, params=params)
         response.raise_for_status()
         return response.json()
 
-    def get_item(self, id: str):
+    @classmethod
+    def get_item(cls, id: str):
         """
         Get information about the item
         """
@@ -33,11 +32,12 @@ class Infinibrowser:
         path = "/api/item"
         params = {"id": id}
 
-        data = self._get_request(path=path, params=params)
+        data = cls._get_request(path=path, params=params)
 
         return ItemData(**data)
 
-    def get_recipes(self, id: str, offset=0):
+    @classmethod
+    def get_recipes(cls, id: str, offset=0):
         """
         Get recipes for the item
         """
@@ -45,11 +45,12 @@ class Infinibrowser:
         path = "/api/recipes"
         params = {"id": id, "offset": offset}
 
-        data = self._get_request(path=path, params=params)
+        data = cls._get_request(path=path, params=params)
 
         return RecipesData(**data)
 
-    def get_uses(self, id: str, offset=0):
+    @classmethod
+    def get_uses(cls, id: str, offset=0):
         """
         Get uses for the item
         """
@@ -57,11 +58,12 @@ class Infinibrowser:
         path = "/api/uses"
         params = {"id": id, "offset": offset}
 
-        data = self._get_request(path=path, params=params)
+        data = cls._get_request(path=path, params=params)
 
         return UsesData(**data)
 
-    def get_lineage(self, id: str):
+    @classmethod
+    def get_lineage(cls, id: str):
         """
         Get lineage for the item
         """
@@ -69,6 +71,6 @@ class Infinibrowser:
         path = "/api/recipe"
         params = {"id": id}
 
-        data = self._get_request(path=path, params=params)
+        data = cls._get_request(path=path, params=params)
 
         return LineageData(**data)

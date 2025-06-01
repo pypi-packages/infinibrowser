@@ -4,13 +4,22 @@ build-backend = "hatchling.build"
 
 [project]
 name = "infinibrowser"
-version = "0.1.0"
+version = "0.1.1"
 description = "A simple API wrapper for infinibrowser.wiki"
-authors = [{name = "GameRoMan", email = "gameromandev@gmail.com"}]
-license = {text = "MIT"}
+authors = [{ name = "GameRoMan", email = "gameromandev@gmail.com" }]
+license = { text = "MIT" }
 readme = "README.md"
 requires-python = ">=3.10"
-keywords = ["infinibrowser", "infinite", "craft", "browser", "database", "api", "tools", "client"]
+keywords = [
+	"infinibrowser",
+	"infinite",
+	"craft",
+	"browser",
+	"database",
+	"api",
+	"tools",
+	"client",
+]
 classifiers = [
 	"Programming Language :: Python :: 3",
 	"Programming Language :: Python :: 3.10",
