@@ -31,7 +31,7 @@ class Use(BaseModel):
 
 class UsesData(BaseModel):
     total: int
-    recipes: list[Recipe]
+    uses: list[Use]
 
 
 class Step(BaseModel):

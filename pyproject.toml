@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "infinibrowser"
-version = "0.1.1"
+version = "0.1.2"
 description = "A simple API wrapper for infinibrowser.wiki"
 authors = [{ name = "GameRoMan", email = "gameromandev@gmail.com" }]
 license = { text = "MIT" }
@@ -31,7 +31,7 @@ classifiers = [
 dependencies = ["pydantic"]
 
 [project.urls]
-Homepage = "https://github.com/gameroman/infinibrowser"
+Source = "https://github.com/gameroman/infinibrowser"
 
 [tool.hatch.build.targets.wheel]
 packages = ["infinibrowser"]
