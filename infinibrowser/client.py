@@ -2,7 +2,10 @@ from collections.abc import Mapping
 
 import requests
 
+from pydantic import ValidationError
+
 from .types import ItemData, RecipesData, UsesData, LineageData
+from .exceptions import InfinibrowserSchemaException
 
 
 Params = Mapping[str, int | bool | str | None]
@@ -34,10 +37,13 @@ class Infinibrowser:
 
         data = cls._get_request(path=path, params=params)
 
-        return ItemData(**data)
+        try:
+            return ItemData(**data)
+        except ValidationError:
+            raise InfinibrowserSchemaException
 
     @classmethod
-    def get_recipes(cls, id: str, offset=0):
+    def get_recipes(cls, id: str, offset: int = 0):
         """
         Get recipes for the item
         """
@@ -50,7 +56,7 @@ class Infinibrowser:
         return RecipesData(**data)
 
     @classmethod
-    def get_uses(cls, id: str, offset=0):
+    def get_uses(cls, id: str, offset: int = 0):
         """
         Get uses for the item
         """
