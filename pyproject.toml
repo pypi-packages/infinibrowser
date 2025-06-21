@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "infinibrowser"
-version = "0.1.2"
+version = "0.1.3"
 description = "A simple API wrapper for infinibrowser.wiki"
 authors = [{ name = "GameRoMan", email = "gameromandev@gmail.com" }]
 license = { text = "MIT" }
@@ -28,7 +28,7 @@ classifiers = [
 	"Programming Language :: Python :: 3.13",
 	"License :: OSI Approved :: MIT License",
 ]
-dependencies = ["pydantic"]
+dependencies = ["pydantic>=2.11.7"]
 
 [project.urls]
 Source = "https://github.com/gameroman/infinibrowser"
@@ -37,6 +37,11 @@ Source = "https://github.com/gameroman/infinibrowser"
 packages = ["infinibrowser"]
 
 [tool.black]
-line-length = 105
+line-length = 100
 target-version = ["py310", "py311", "py312", "py313"]
 skip-magic-trailing-comma = true
+
+[tool.taskipy.tasks]
+build = "python -c \"import shutil; shutil.rmtree('dist', ignore_errors=True)\" && hatch build"
+publish = "twine upload -r infinibrowser dist/*"
+release = "task build && task publish"

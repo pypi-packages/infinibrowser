@@ -49,7 +49,7 @@ class Infinibrowser:
         """
 
         path = "/api/recipes"
-        params = {"id": id, "offset": offset}
+        params: Params = {"id": id, "offset": offset}
 
         data = cls._get_request(path=path, params=params)
 
@@ -62,7 +62,7 @@ class Infinibrowser:
         """
 
         path = "/api/uses"
-        params = {"id": id, "offset": offset}
+        params: Params = {"id": id, "offset": offset}
 
         data = cls._get_request(path=path, params=params)
 
